@@ -35,7 +35,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         cell.configCell()
         //cell.commentLabel.text = How Can I get this Text ?
-        //cell.defectImageView.image = How Can I get this Image ?
+        //cell.selectedImageView.image = How Can I get this Image ?
         return cell
     }
     
