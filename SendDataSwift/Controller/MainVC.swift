@@ -54,7 +54,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     // Set the height of each row from UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 390
+        return UITableView.automaticDimension
     }
 }
 
