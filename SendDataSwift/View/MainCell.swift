@@ -25,6 +25,12 @@ class MainCell: UITableViewCell {
     @IBOutlet weak var tagNameLabel: UILabel!
     @IBOutlet weak var selectedImageView: UIImageView!
     
+    
+    @IBOutlet weak var firstCommentHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var secondCommentHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
+    
     // Properties
     var delegate: MainCellDelegate?
     
@@ -46,10 +52,8 @@ class MainCell: UITableViewCell {
     
     // Config the cell for Defect and Damage Check
     func configCell(){
-        
+
         nameOfCheckLabel.text = "Do you like Swift ?"
-        firstCommentLabel.text = "First comment here"
-        secondCommentLabel.text = "Second comment here"
         tagNameLabel.text = "Tag name 1, tag name 2, tag name 3, tag name 4, tag name 5"
         passButton.imageView?.image = UIImage(named: "whiteTickIcon")
         failButton.imageView?.image = UIImage(named: "whiteCrossIcon")

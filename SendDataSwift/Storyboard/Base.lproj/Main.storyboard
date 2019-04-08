@@ -164,13 +164,13 @@
                                                         <action selector="passBtnOrFailBtnTapped:" destination="qjy-tc-E58" eventType="touchUpInside" id="UgP-tN-phY"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First comment here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HP-mT-0re" userLabel="First Comment">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HP-mT-0re" userLabel="First Comment">
                                                     <rect key="frame" x="15" y="167" width="345" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.94089967009999997" green="0.55406415460000003" blue="0.076600737870000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second comment here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-qt-Vgc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsB-qt-Vgc">
                                                     <rect key="frame" x="15" y="199" width="345" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.94089967009999997" green="0.55406415460000003" blue="0.076600737870000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -179,8 +179,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ABr-P3-rtO" userLabel="Tag Icon">
                                                     <rect key="frame" x="15" y="231" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="Eb4-pq-sbp"/>
-                                                        <constraint firstAttribute="height" constant="40" id="lTJ-VM-Pu6"/>
+                                                        <constraint firstAttribute="width" constant="40" id="4Ab-vY-aar"/>
+                                                        <constraint firstAttribute="height" constant="40" id="QOg-Zf-djl"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of tag 1, Name of tag 2, Name of tag 3, Name of tag 4" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2o-It-ImO" userLabel="Name of the tags">
@@ -192,40 +192,44 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rRG-i1-lHa" userLabel="Image from camera">
                                                     <rect key="frame" x="15" y="280" width="100" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="oX0-lw-SAM"/>
-                                                        <constraint firstAttribute="height" constant="100" id="zZ4-nK-ApH"/>
+                                                        <constraint firstAttribute="width" constant="100" id="UXk-vc-pco"/>
+                                                        <constraint firstAttribute="height" constant="100" id="y0a-EA-DXu"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GsB-qt-Vgc" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="0eo-pN-Uhc"/>
+                                                <constraint firstItem="9HP-mT-0re" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="2Ek-ya-q1G"/>
                                                 <constraint firstItem="wYZ-XD-Cdv" firstAttribute="top" secondItem="ucc-mr-Nuc" secondAttribute="topMargin" id="3Ta-fc-y1W"/>
-                                                <constraint firstItem="GsB-qt-Vgc" firstAttribute="trailing" secondItem="ucc-mr-Nuc" secondAttribute="trailingMargin" id="5ok-qo-dXa"/>
-                                                <constraint firstItem="P2o-It-ImO" firstAttribute="trailing" secondItem="ucc-mr-Nuc" secondAttribute="trailingMargin" id="7XY-nj-4pY"/>
-                                                <constraint firstItem="ABr-P3-rtO" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="ET6-BO-Gth"/>
+                                                <constraint firstItem="GsB-qt-Vgc" firstAttribute="top" secondItem="9HP-mT-0re" secondAttribute="bottom" constant="8" id="41p-4P-Z1V" userLabel="FirstCommentHeightConstraint"/>
+                                                <constraint firstItem="P2o-It-ImO" firstAttribute="trailing" secondItem="ucc-mr-Nuc" secondAttribute="trailingMargin" id="BtS-Bu-KG3"/>
                                                 <constraint firstItem="094-5z-2jr" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="H9w-To-fev"/>
-                                                <constraint firstItem="rRG-i1-lHa" firstAttribute="top" secondItem="P2o-It-ImO" secondAttribute="bottom" constant="8" id="Hf1-h2-tiu"/>
-                                                <constraint firstItem="9HP-mT-0re" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="Owm-Q5-6RX"/>
-                                                <constraint firstItem="rRG-i1-lHa" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="P5Y-Qx-m0j"/>
                                                 <constraint firstItem="wYZ-XD-Cdv" firstAttribute="leading" secondItem="094-5z-2jr" secondAttribute="trailing" constant="8" id="PEU-oP-6O9"/>
                                                 <constraint firstItem="3FZ-FT-pAI" firstAttribute="top" secondItem="wYZ-XD-Cdv" secondAttribute="bottom" constant="8" id="POB-Xb-02u"/>
-                                                <constraint firstItem="P2o-It-ImO" firstAttribute="leading" secondItem="ABr-P3-rtO" secondAttribute="trailing" constant="8" id="Pai-ev-CR6"/>
-                                                <constraint firstItem="ABr-P3-rtO" firstAttribute="top" secondItem="GsB-qt-Vgc" secondAttribute="bottom" constant="8" id="Rgk-dL-33V"/>
+                                                <constraint firstItem="GsB-qt-Vgc" firstAttribute="trailing" secondItem="ucc-mr-Nuc" secondAttribute="trailingMargin" id="Rot-EL-9Yh"/>
+                                                <constraint firstItem="rRG-i1-lHa" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="SZK-HC-zFp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="wYZ-XD-Cdv" secondAttribute="trailing" id="TKt-TU-tjf"/>
-                                                <constraint firstItem="9HP-mT-0re" firstAttribute="trailing" secondItem="ucc-mr-Nuc" secondAttribute="trailingMargin" id="WXf-or-syx"/>
-                                                <constraint firstItem="9HP-mT-0re" firstAttribute="top" secondItem="3FZ-FT-pAI" secondAttribute="bottom" constant="8" id="YJo-fh-Rwg"/>
+                                                <constraint firstItem="P2o-It-ImO" firstAttribute="leading" secondItem="ABr-P3-rtO" secondAttribute="trailing" constant="8" id="Tha-Jd-Vo2"/>
+                                                <constraint firstItem="rRG-i1-lHa" firstAttribute="top" secondItem="P2o-It-ImO" secondAttribute="bottom" constant="8" id="UYA-HW-Ypj"/>
+                                                <constraint firstItem="GsB-qt-Vgc" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="Xpq-dh-nYX"/>
+                                                <constraint firstItem="ABr-P3-rtO" firstAttribute="leading" secondItem="ucc-mr-Nuc" secondAttribute="leadingMargin" id="YkP-eA-wcy"/>
                                                 <constraint firstItem="094-5z-2jr" firstAttribute="top" secondItem="ucc-mr-Nuc" secondAttribute="topMargin" id="dBM-rg-ML1"/>
-                                                <constraint firstItem="GsB-qt-Vgc" firstAttribute="top" secondItem="9HP-mT-0re" secondAttribute="bottom" constant="8" id="dm0-Kz-2Lv"/>
+                                                <constraint firstItem="ABr-P3-rtO" firstAttribute="top" secondItem="GsB-qt-Vgc" secondAttribute="bottom" constant="8" id="dWM-NS-fh3"/>
+                                                <constraint firstItem="9HP-mT-0re" firstAttribute="top" secondItem="3FZ-FT-pAI" secondAttribute="bottom" constant="8" id="dX6-WN-jkV"/>
+                                                <constraint firstAttribute="bottom" secondItem="rRG-i1-lHa" secondAttribute="bottom" constant="9.5" id="ho4-dj-WL5" userLabel="ImageHeightConstraint"/>
+                                                <constraint firstItem="P2o-It-ImO" firstAttribute="top" secondItem="GsB-qt-Vgc" secondAttribute="bottom" constant="8" id="lXm-QB-1od" userLabel="SecondCommentHeightConstraint"/>
+                                                <constraint firstItem="9HP-mT-0re" firstAttribute="trailing" secondItem="ucc-mr-Nuc" secondAttribute="trailingMargin" id="o2R-en-Bom"/>
                                                 <constraint firstItem="3FZ-FT-pAI" firstAttribute="trailing" secondItem="ucc-mr-Nuc" secondAttribute="trailingMargin" id="xnx-Sz-xgm"/>
-                                                <constraint firstItem="P2o-It-ImO" firstAttribute="top" secondItem="GsB-qt-Vgc" secondAttribute="bottom" constant="8" id="zbU-VQ-RQg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="failButton" destination="3FZ-FT-pAI" id="Y1Q-gq-riv"/>
+                                            <outlet property="firstCommentHeightConstraint" destination="41p-4P-Z1V" id="FNZ-5Q-1TL"/>
                                             <outlet property="firstCommentLabel" destination="9HP-mT-0re" id="vnt-yY-Vai"/>
+                                            <outlet property="imageHeightConstraint" destination="y0a-EA-DXu" id="MQf-Jq-zQG"/>
                                             <outlet property="nameOfCheckLabel" destination="094-5z-2jr" id="Se1-al-EBG"/>
                                             <outlet property="passButton" destination="wYZ-XD-Cdv" id="e73-3i-slP"/>
+                                            <outlet property="secondCommentHeightConstraint" destination="lXm-QB-1od" id="ncg-mM-QYk"/>
                                             <outlet property="secondCommentLabel" destination="GsB-qt-Vgc" id="pYD-TL-zff"/>
                                             <outlet property="selectedImageView" destination="rRG-i1-lHa" id="Xdm-3h-R5W"/>
                                             <outlet property="tagIconImageView" destination="ABr-P3-rtO" id="YhO-Mw-T9n"/>

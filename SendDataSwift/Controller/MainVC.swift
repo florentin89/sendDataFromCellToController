@@ -39,22 +39,35 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainCell
         cell.delegate = self
         cell.configCell()
-        if !firstCommentReceived.isEmpty{
+        
+        if firstCommentReceived.isBlank{
+            cell.firstCommentLabel.text = ""
+            cell.firstCommentHeightConstraint.constant = 0
+        }
+        else{
             cell.firstCommentLabel.text = firstCommentReceived
         }
-        if !secondCommentReceived.isEmpty{
+        if secondCommentReceived.isBlank{
+            cell.secondCommentLabel.text = ""
+            cell.secondCommentHeightConstraint.constant = 0
+        }
+        else{
             cell.secondCommentLabel.text = secondCommentReceived
         }
-        if !images.isEmpty{
+        if images.isEmpty{
+            cell.imageHeightConstraint.constant = 0
+        }
+        else{
             cell.selectedImageView.image = images[0]
+            cell.imageHeightConstraint.constant = 100
         }
         return cell
     }
     
     // Set the height of each row from UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 390
+
+        return UITableView.automaticDimension
     }
 }
 
@@ -81,7 +94,7 @@ extension MainVC: MainCellDelegate {
         showOptionsOnCellTapped()
     }
     
-    // Show to user a menu with options when press Roadside button
+    // Show to user a menu with options when the user hold on any cell
     func showOptionsOnCellTapped(){
         
         let addComment = UIAlertAction(title: "📝 Add Comment", style: .default) { action in
@@ -157,5 +170,22 @@ extension UIViewController{
             actionSheet.popoverPresentationController?.permittedArrowDirections = []
         }
         return actionSheet
+    }
+}
+
+// Check if a field don't contains white spaces or is empty
+extension String {
+    var isBlank: Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
+
+extension Optional where Wrapped == String {
+    var isBlank: Bool {
+        if let unwrapped = self {
+            return unwrapped.isBlank
+        } else {
+            return true
+        }
     }
 }
