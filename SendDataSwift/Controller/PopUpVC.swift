@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PopUpDelegate {
-    func receiveFirstComment(firstComment: String)
+    func receiveComments(firstComment: String?, secondComment: String?)
 }
 
 class PopUpVC: UIViewController {
@@ -48,7 +48,7 @@ class PopUpVC: UIViewController {
     
     @IBAction func saveBtnTapped(_ sender: UIButton) {
         
-        delegate?.receiveFirstComment(firstComment: firstCommentTextField.text ?? "")
+        delegate?.receiveComments(firstComment: firstCommentTextField.text ?? "", secondComment: secondCommentTextField.text ?? "")
         dismiss(animated: true, completion: nil)
     }
     

@@ -11,7 +11,6 @@ import UIKit
 protocol MainCellDelegate {
     func tappedOnPassOrFail(passBtn: UIButton, failBtn: UIButton)
     func tapGestureOnCell()
-    func receiveImageViewFromCell(imageView: UIImageView)
 }
 
 class MainCell: UITableViewCell {
@@ -20,7 +19,8 @@ class MainCell: UITableViewCell {
     @IBOutlet weak var nameOfCheckLabel: UILabel!
     @IBOutlet weak var passButton: UIButton!
     @IBOutlet weak var failButton: UIButton!
-    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var firstCommentLabel: UILabel!
+    @IBOutlet weak var secondCommentLabel: UILabel!
     @IBOutlet weak var tagIconImageView: UIImageView!
     @IBOutlet weak var tagNameLabel: UILabel!
     @IBOutlet weak var selectedImageView: UIImageView!
@@ -47,17 +47,17 @@ class MainCell: UITableViewCell {
     // Config the cell for Defect and Damage Check
     func configCell(){
         
-        nameOfCheckLabel.text = "Do you smoke ?"
-        commentLabel.text = "Looong text"
+        nameOfCheckLabel.text = "Do you like Swift ?"
+        firstCommentLabel.text = "First comment here"
+        secondCommentLabel.text = "Second comment here"
         tagNameLabel.text = "Tag name 1, tag name 2, tag name 3, tag name 4, tag name 5"
         passButton.imageView?.image = UIImage(named: "whiteTickIcon")
         failButton.imageView?.image = UIImage(named: "whiteCrossIcon")
-        delegate?.receiveImageViewFromCell(imageView: selectedImageView)
+        selectedImageView.image = UIImage(named: "greenTickIcon")
     }
     
     @IBAction func passBtnOrFailBtnTapped(_ sender: UIButton) {
         
         delegate?.tappedOnPassOrFail(passBtn: passButton, failBtn: failButton)
     }
-    
 }

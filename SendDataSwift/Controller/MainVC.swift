@@ -9,16 +9,21 @@
 import UIKit
 
 class MainVC: UIViewController {
-
+    
     // Interface Links
     @IBOutlet weak var questionsTableView: UITableView!
     
     // Properties
     var imagePicker: UIImagePickerController!
+    var firstCommentReceived = ""
+    var secondCommentReceived = ""
+    var images = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        questionsTableView.rowHeight = UITableView.automaticDimension
+        questionsTableView.estimatedRowHeight = 390
     }
 }
 
@@ -34,17 +39,23 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainCell
         cell.delegate = self
         cell.configCell()
-        //cell.commentLabel.text = How Can I get this Text ?
-        //cell.selectedImageView.image = How Can I get this Image ?
+        if !firstCommentReceived.isEmpty{
+            cell.firstCommentLabel.text = firstCommentReceived
+        }
+        if !secondCommentReceived.isEmpty{
+            cell.secondCommentLabel.text = secondCommentReceived
+        }
+        if !images.isEmpty{
+            cell.selectedImageView.image = images[0]
+        }
         return cell
     }
     
     // Set the height of each row from UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 400
+        return 390
     }
-    
 }
 
 extension MainVC: MainCellDelegate {
@@ -70,11 +81,6 @@ extension MainVC: MainCellDelegate {
         showOptionsOnCellTapped()
     }
     
-    func receiveImageViewFromCell(imageView: UIImageView) {
-        
-        print("Image received")
-    }
-    
     // Show to user a menu with options when press Roadside button
     func showOptionsOnCellTapped(){
         
@@ -85,7 +91,7 @@ extension MainVC: MainCellDelegate {
             // Open Camera
             self.showCamera()
         }
-
+        
         let actionSheet = configureActionSheet()
         actionSheet.addAction(addComment)
         actionSheet.addAction(addPhoto)
@@ -104,16 +110,25 @@ extension MainVC: MainCellDelegate {
 
 extension MainVC: PopUpDelegate{
     
-    func receiveFirstComment(firstComment: String) {
-    
-        // I need to set the delegate as self here but how ?
-        print("Comment received: \(firstComment)")
+    func receiveComments(firstComment: String?, secondComment: String?) {
+        
+        firstCommentReceived = firstComment ?? ""
+        secondCommentReceived = secondComment ?? ""
+        
+        questionsTableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToAddComments" {
+            let popupVC = segue.destination as! PopUpVC
+            popupVC.delegate = self
+        }
+    }
 }
 
 extension MainVC: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
- 
+    
     //Dismiss the Camera and display the selected image into the UIImageView
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         imagePicker.dismiss(animated: true, completion: nil)
@@ -121,14 +136,11 @@ extension MainVC: UINavigationControllerDelegate, UIImagePickerControllerDelegat
             print("Image not found!")
             return
         }
-
         
-        // How can I access the imageView from my Cell here ?
-        //myImageViewFromCell.image = selectedImage
-        
-        receiveImageViewFromCell(imageView: UIImageView(image: selectedImage)) // This delegate don't work for some reasons. When I debug I can see the image on 'selectedImage' but is not assigned to my UIImageView
+        images.append(selectedImage)
+        questionsTableView.reloadData()
     }
-    
+
 }
 
 extension UIViewController{
@@ -144,7 +156,6 @@ extension UIViewController{
             actionSheet.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
             actionSheet.popoverPresentationController?.permittedArrowDirections = []
         }
-        
         return actionSheet
     }
 }
